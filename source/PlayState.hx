@@ -914,7 +914,8 @@ class PlayState extends MusicBeatState
 
 		Conductor.songPosition = -5000;
 		
-		strumLine = new FlxSprite(0, 50).makeGraphic(FlxG.width, 10);
+		strumLine = new FlxSprite(42, 50).makeGraphic(FlxG.width, 10);
+
 		strumLine.scrollFactor.set();
 		
 		if (PlayStateChangeables.useDownscroll)
@@ -999,25 +1000,22 @@ class PlayState extends MusicBeatState
 		add(healthBar);
 
 		// Add Kade Engine watermark
-		kadeEngineWatermark = new FlxText(FlxG.width + kadeEngineWatermark.width ,healthBarBG.y + 50,0,SONG.song + " - " + CoolUtil.difficultyFromInt(storyDifficulty) + (Main.watermarks ? " | DE " + MainMenuState.gameVer : ""), 16);
-		kadeEngineWatermark.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
+		kadeEngineWatermark = new FlxText(0 ,healthBarBG.y + 50,0,"" , 14);
+		kadeEngineWatermark.setFormat(Paths.font("phanto.ttf"), 7 * 4, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
 		kadeEngineWatermark.scrollFactor.set();
+		kadeEngineWatermark.text = "DE " + MainMenuState.gameVer;
+		kadeEngineWatermark.borderSize = 4;
 		add(kadeEngineWatermark);
 
 		if (PlayStateChangeables.useDownscroll)
-			kadeEngineWatermark.y = FlxG.height * 0.9 + 45;
+			kadeEngineWatermark.y = FlxG.height * 0.9 + 23;
 
-		scoreTxt = new FlxText(FlxG.width / 2 - 235, healthBarBG.y + 50, 0, "", 20);
-
-		scoreTxt.screenCenter(X);
-
-		originalX = scoreTxt.x;
-
-
+		scoreTxt = new FlxText(healthBarBG.x + 48 , healthBarBG.y + 50, 0, "", 14);
+	//	scoreTxt.screenCenter(X);
+		//originalX = scoreTxt.x;
 		scoreTxt.scrollFactor.set();
-		
-		scoreTxt.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, FlxTextAlign.CENTER, FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
-
+		scoreTxt.setFormat(Paths.font("phanto.ttf"), 24, FlxColor.WHITE, FlxTextAlign.CENTER, FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
+		scoreTxt.borderSize = 4;
 		add(scoreTxt);
 
 		replayTxt = new FlxText(healthBarBG.x + healthBarBG.width / 2 - 75, healthBarBG.y + (PlayStateChangeables.useDownscroll ? 100 : -100), 0, "REPLAY", 20);
@@ -2003,9 +2001,9 @@ class PlayState extends MusicBeatState
 
 		scoreTxt.text = Ratings.CalculateRanking(songScore,songScoreDef,nps,maxNPS,accuracy);
 
+
 		var lengthInPx = scoreTxt.textField.length * scoreTxt.frameHeight; // bad way but does more or less a better job
 
-		scoreTxt.x = (originalX - (lengthInPx / 2)) + 335;
 
 		if (controls.PAUSE && startedCountdown && canPause)
 		{
@@ -2840,8 +2838,11 @@ class PlayState extends MusicBeatState
 			coolText.cameras = [camHUD];
 			//
 	
-			var rating:FlxSprite = new FlxSprite();
+			var rating:FlxSprite = new FlxSprite(0, FlxG.height - 152 - 24);
 			var score:Float = 350;
+			rating.x = FlxG.width * 0.8;
+			if (PlayStateChangeables.useDownscroll)
+				rating.y = 24;
 
 			if (FlxG.save.data.accuracyMod == 1)
 				totalNotesHit += wife;
@@ -2911,9 +2912,9 @@ class PlayState extends MusicBeatState
 			}
 	
 			rating.loadGraphic(Paths.image(pixelShitPart1 + daRating + pixelShitPart2));
-			rating.screenCenter();
-			rating.y -= 50;
-			rating.x = coolText.x - 125;
+			//rating.screenCenter();
+		//	rating.y -= 50;
+		//	rating.x = FlxG.width - rating.width;
 			
 			if (FlxG.save.data.changedHit)
 			{
@@ -3013,6 +3014,7 @@ class PlayState extends MusicBeatState
 			currentTimingShown.cameras = [camHUD];
 			comboSpr.cameras = [camHUD];
 			rating.cameras = [camHUD];
+			add(comboSpr);
 
 			var seperatedScore:Array<Int> = [];
 	
@@ -3041,7 +3043,7 @@ class PlayState extends MusicBeatState
 			{
 				var numScore:FlxSprite = new FlxSprite().loadGraphic(Paths.image(pixelShitPart1 + 'num' + Std.int(i) + pixelShitPart2));
 				numScore.screenCenter();
-				numScore.x = rating.x + (43 * daLoop) - 50;
+				numScore.x = rating.x + (43 * daLoop);
 				numScore.y = rating.y + 100;
 				numScore.cameras = [camHUD];
 
@@ -3292,7 +3294,7 @@ class PlayState extends MusicBeatState
 				
 				if (boyfriend.holdTimer > Conductor.stepCrochet * 4 * 0.001 && (!holdArray.contains(true) || PlayStateChangeables.botPlay))
 				{
-					if (boyfriend.animation.curAnim.name.startsWith('sing') && !boyfriend.animation.curAnim.name.endsWith('miss'))
+					if (boyfriend.animation.curAnim.name.startsWith('sing') && !boyfriend.animation.curAnim.name.endsWith('miss') && boyfriend.animation.curAnim.curFrame >= 10)
 						boyfriend.playAnim('idle');
 				}
 		 
@@ -3508,6 +3510,7 @@ class PlayState extends MusicBeatState
 			totalPlayed += 1;
 			accuracy = Math.max(0,totalNotesHit / totalPlayed * 100);
 			accuracyDefault = Math.max(0, totalNotesHitDefault / totalPlayed * 100);
+			scoreTxt.x = healthBarBG.x + 24;
 		}
 
 
@@ -3631,12 +3634,14 @@ class PlayState extends MusicBeatState
 							boyfriend.playAnim('singDOWN', true);
 						case 0:
 							boyfriend.playAnim('singLEFT', true);
+						
 					}
 		
 					#if windows
 					if (luaModchart != null)
 						luaModchart.executeState('playerOneSing', [note.noteData, Conductor.songPosition]);
 					#end
+					
 
 
 					if(!loadRep && note.mustPress)

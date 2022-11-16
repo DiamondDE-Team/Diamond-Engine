@@ -17,41 +17,49 @@ import flixel.math.FlxRect;
 import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
 import flixel.text.FlxText;
+import flixel.ui.FlxBar;
 
 using StringTools;
 
 class Caching extends MusicBeatState
 {
-    var toBeDone = 0;
-    var done = 0;
+    var toBeDone:Int = 0;
+    var done:Int = 0;
 
     var text:FlxText;
     var kadeLogo:FlxSprite;
+    var loadingBar:FlxBar;
+    var loadingVar:String;
+    
 
 	override function create()
 	{
+        loadingVar = Std.string(done);
         FlxG.mouse.visible = false;
 
         FlxG.worldBounds.set(0,0);
 
         text = new FlxText(FlxG.width / 2, FlxG.height / 2 + 300,0,"Loading...");
         text.size = 34;
-        text.alignment = FlxTextAlign.CENTER;
-        text.alpha = 0;
+        text.alignment = FlxTextAlign.LEFT;
 
-        kadeLogo = new FlxSprite(FlxG.width / 2, FlxG.height / 2).loadGraphic(Paths.image('KadeEngineLogo'));
+        kadeLogo = new FlxSprite(FlxG.width / 2, FlxG.height / 2).loadGraphic(Paths.image('logo'));
         kadeLogo.x -= kadeLogo.width / 2;
         kadeLogo.y -= kadeLogo.height / 2 + 100;
         text.y -= kadeLogo.height / 2 - 125;
+        
         text.x -= 170;
         kadeLogo.setGraphicSize(Std.int(kadeLogo.width * 0.6));
+      /*  loadingBar = new FlxBar(0,0,LEFT_TO_RIGHT,FlxG.width,48,loadingVar,this,toBeDone);
+		loadingBar.createGradientBar([FlxColor.WHITE], [FlxColor.BLUE]);
 
-        kadeLogo.alpha = 0;
+		// healthBar
+		add(loadingBar);*/
 
         add(kadeLogo);
         add(text);
 
-        trace('starting caching..');
+        text.text = "starting caching..";
         
         sys.thread.Thread.create(() -> {
             cache();
@@ -65,13 +73,10 @@ class Caching extends MusicBeatState
 
     override function update(elapsed) 
     {
-
+        
         if (toBeDone != 0 && done != toBeDone)
         {
-            var alpha = HelperFunctions.truncateFloat(done / toBeDone * 100,2) / 100;
-            kadeLogo.alpha = alpha;
-            text.alpha = alpha;
-            text.text = "Loading... (" + done + "/" + toBeDone + ")";
+            text.text = "Caching... (" + done + "/" + toBeDone + ")";
         }
 
         super.update(elapsed);

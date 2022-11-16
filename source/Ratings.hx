@@ -144,8 +144,8 @@ class Ratings
          "NPS: " + nps + " (Max " + maxNPS + ")" + (!PlayStateChangeables.botPlay || PlayState.loadRep ? " | " : "") : "") +								// 	NPS
          (!PlayStateChangeables.botPlay || PlayState.loadRep ? "Score:" + (Conductor.safeFrames != 10 ? score + " (" + scoreDef + ")" : "" + score) + 		// Score
          (FlxG.save.data.accuracyDisplay ?																						// Accuracy Toggle
-         " | Combo Breaks:" + PlayState.misses + 																				// 	Misses/Combo Breaks
-         " | Accuracy:" + (PlayStateChangeables.botPlay && !PlayState.loadRep ? "N/A" : HelperFunctions.truncateFloat(accuracy, 2) + " %") +  				// 	Accuracy
+         " | Acc:" + (PlayStateChangeables.botPlay && !PlayState.loadRep ? "N/A" : HelperFunctions.truncateFloat(accuracy, 2) + " %") +  				// 	Accuracy
+         " | Misses:" + PlayState.misses + 																				// 	Misses/Combo Breaks
          " | " + GenerateLetterRank(accuracy) : "") : ""); 																		// 	Letter Rank
     }
 }
