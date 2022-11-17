@@ -34,20 +34,20 @@ jobs:
           sudo apt-get install libvlc-dev
           sudo apt-get install libvlccore-dev
           haxelib setup ~/haxelib
-           haxelib install lime 
+          haxelib install lime 
           RefreshEnv
-           haxelib install openfl
-            haxelib install flixel
-              haxelib run lime setup flixel
-                haxelib run lime setup
+          haxelib install openfl
+          haxelib install flixel
+           haxelib run lime setup flixel
+          haxelib run lime setup
                     haxelib install flixel-tools
                        haxelib install flixel-addons
-                                  haxelib install flixel-ui
+            haxelib install flixel-ui
                            haxelib install hscript
                     haxelib install newgrounds
               haxelib install flixel-addons
           haxelib git faxe https://github.com/uhrobots/faxe
-        haxelib git polymod https://github.com/larsiusprime/polymod.git
+
          haxelib git discord_rpc https://github.com/Aidan63/linc_discord-rpc
              haxelib git extension-webm https://github.com/gingerphoenix10/extension-webm.git 
           haxelib run lime rebuild extension-webm windows
