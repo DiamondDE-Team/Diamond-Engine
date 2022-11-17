@@ -1,0 +1,65 @@
+Diamond Engine Ideas (dont ping @Wocky Please)
+
+1. Advanced Character Editor
+Add frames in single images and sort it with the new advanced Character editor.
+	Features:
+	- Add animations by prefixes (SingDown. Yes now works with caps)
+	- Sort the frames like that Frames to xml program thing.
+	- Now the camera movement when hit notes can be toggled per character in the editor.
+	- Health Drain toggeable in editor with capacity for adjust health drain quantity (100% being all the life and 1% begin 1 per note)
+
+2. Better Chart editor
+Better chart editor than funkin master (Vanilla game)
+	- Better Zoom in strums
+	- Events in chart.
+		+ New events like Move camera, add zoom, add image, and pysch events. Also introducing new ones like:
+			Toggleable on/off shaders: Choose a prebuild shader and adjust the properties of this. Example Chromatic Aberration: ON, Properties: Instensity 25%
+			Cinema Mode: Add black bars for being looked like 21:9 and makes camera smoother.
+			Fully editable events: Add a script as event and modify it easily.
+		+Multi Events (Put 50k Events in a single one event for you stupid dave and bambi mods).
+		
+3. Advanced Stage Editor
+Do better stages with this inproved editor.
+	- Endless mode: Repeats your stage endlessly in X Axis or Y Axis (For running stages)
+	- Add shaders to stage assets: For you Dave And Bambi Mods again
+	- Test stage: Test stage without exit and enter to the editor again. do "CTRL + ESC"
+	
+4. Menu editor (Titlescreen, MainMenu, Weekmenu, Freeplay Menu, Any menu basically)
+Do menus like hotline, lullaby or any other mod with modified menus.
+	- Move default buttons and replace with custom textures
+	- Change background and add endless mode to assets.
+	- Add random images in a folder in "images/menu/random"
+
+5. NO WAY STATE EDITOR!!? (For advanced users)
+Add custom states like a Shop, A gallery, A code menu, a joke menu, Anything.
+	- Add and modify existent states and save it as "CustomState.hx"
+	- Add buttons for enter to the stage
+	- Add images and do clickable images for a custom state
+	- No coding needed :)
+
+6. UI EDITOR!!! (In game not menus)
+Modify the playstate UI To a custom one (Now you can make your forks properly)
+	- Change pos of things with mouse: You can move every single asset (Excluding arrows cause there are hardlocked)
+	- Change font: Change UI Font (Based on installed fonts in pc. No more fonts folder)
+	- Change bop icons: Change bop icons like Dave and bambi and other mods.
+	
+7. Options
+Added new options and replace ones (Listed all below)
+	- Downscroll and Midscroll (New midscroll btw)
+	- Accuracy type: Simple, Complex, Osu!Mania
+	- Motion blur: Adds motion blur to notes with intensity adjustable.
+	- Low Detail Mode (Also ULDM): 
+		LDM: Disables intense shaders like Blur, And other intense shaders marked as "Intense"
+		ULDM: Disables camGame, All the UI Except for combo and arrows. And disables every single event (Not including Modchart events)
+	- Botplay: A bot plays the game (Press Shift + F5 For enable during the song)
+	- Fix hold notes: Instead of separated images, the hold tail merges in a only scripted image (Better for insane modcharts)
+	- Ratings on camGame: Changes the pos of the ratings to the camGame (Like Funkin master)
+	- Pre-cached assets: Loads the images, scripts, and audios when load a song and open the game. It makes loadings faster but consumes more RAM.
+	- Splashes: Enables splashes when press note on Sick! ratings.
+	- Show MS: Setup Ms and how many decimals will be have (2 by default)
+	- Bring back buggy icon bump: brings back the buggy icon bump see it on Forever Engine, Kade engine (1.7 and down) and other engines.
+	- Cinematic mode: Perfect for high-effort visually mods. It makes the camera more smoother, add cinematic bars, And hide almost all the UI (F5 In game for show/hide. Thanks Hoken)
+
+8. Skins!!? (I mean really Skins, Not change the arrows assets)
+Change every fucking asset in game with skins. Create a Skins folder and put your skins there similar to Osu! (Zipped or unzipped) 
+
