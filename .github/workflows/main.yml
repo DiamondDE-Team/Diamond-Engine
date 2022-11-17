@@ -33,25 +33,26 @@ jobs:
         run: |
         sudo apt-get install libvlc-dev
         sudo apt-get install libvlccore-dev
-        haxelib setup ~/haxelib
-        haxelib install lime 
-        haxelib install openfl
-        haxelib install flixel
-        haxelib run lime setup flixel
-        haxelib run lime setup
-        haxelib install flixel-tools
-        haxelib install flixel-addons
-        haxelib install flixel-ui
-        haxelib install hscript
-        haxelib install newgrounds
-        haxelib install flixel-addons
-        haxelib git faxe https://github.com/uhrobots/faxe
-        haxelib git discord_rpc https://github.com/Aidan63/linc_discord-rpc
-        haxelib git extension-webm https://github.com/gingerphoenix10/extension-webm.git 
-        haxelib run lime rebuild extension-webm windows
-        haxelib install linc_luajit
-        haxelib install actuate
-        haxelib list
+  - haxelib install lime 
+  - RefreshEnv
+  - haxelib install openfl
+  - haxelib install flixel
+  - haxelib run lime setup flixel
+  - haxelib run lime setup
+  - haxelib install flixel-tools
+  # haxelib run flixel-tools setup -y # Can't do this since it asks [y/n] even with -y argument! Stupid
+  - haxelib install flixel-addons
+  - haxelib install flixel-ui
+  - haxelib install hscript
+  - haxelib install newgrounds
+  - haxelib install flixel-addons
+  - haxelib git faxe https://github.com/uhrobots/faxe
+  - haxelib git polymod https://github.com/larsiusprime/polymod.git
+  - haxelib git discord_rpc https://github.com/Aidan63/linc_discord-rpc
+  - haxelib git extension-webm https://github.com/gingerphoenix10/extension-webm.git 
+  - haxelib run lime rebuild extension-webm windows
+  - haxelib install linc_luajit
+  - haxelib install actuate 
       - name: Create Version Tag
         run: echo "${{github.run_id}}" > VERSION
       - name: Compile
@@ -75,24 +76,26 @@ jobs:
       - name: Install Haxelib
         run: |
           haxelib setup C:/haxelib
-         haxelib install lime 
-        haxelib install openfl
-        haxelib install flixel
-        haxelib run lime setup flixel
-        haxelib run lime setup
-        haxelib install flixel-tools
-        haxelib install flixel-addons
-        haxelib install flixel-ui
-        haxelib install hscript
-        haxelib install newgrounds
-        haxelib install flixel-addons
-        haxelib git faxe https://github.com/uhrobots/faxe
-        haxelib git discord_rpc https://github.com/Aidan63/linc_discord-rpc
-        haxelib git extension-webm https://github.com/gingerphoenix10/extension-webm.git 
-        haxelib run lime rebuild extension-webm windows
-        haxelib install linc_luajit
-        haxelib install actuate
-        haxelib list
+  - haxelib install lime 
+  - RefreshEnv
+  - haxelib install openfl
+  - haxelib install flixel
+  - haxelib run lime setup flixel
+  - haxelib run lime setup
+  - haxelib install flixel-tools
+  # haxelib run flixel-tools setup -y # Can't do this since it asks [y/n] even with -y argument! Stupid
+  - haxelib install flixel-addons
+  - haxelib install flixel-ui
+  - haxelib install hscript
+  - haxelib install newgrounds
+  - haxelib install flixel-addons
+  - haxelib git faxe https://github.com/uhrobots/faxe
+  - haxelib git polymod https://github.com/larsiusprime/polymod.git
+  - haxelib git discord_rpc https://github.com/Aidan63/linc_discord-rpc
+  - haxelib git extension-webm https://github.com/gingerphoenix10/extension-webm.git 
+  - haxelib run lime rebuild extension-webm windows
+  - haxelib install linc_luajit
+  - haxelib install actuate
         shell: cmd
       - name: Create Version Tag
         run: echo "${{github.run_id}}" > VERSION
@@ -116,25 +119,26 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Install Haxelib
         run: |
-          haxelib setup ~/haxelib
-                   haxelib install lime 
-        haxelib install openfl
-        haxelib install flixel
-        haxelib run lime setup flixel
-        haxelib run lime setup
-        haxelib install flixel-tools
-        haxelib install flixel-addons
-        haxelib install flixel-ui
-        haxelib install hscript
-        haxelib install newgrounds
-        haxelib install flixel-addons
-        haxelib git faxe https://github.com/uhrobots/faxe
-        haxelib git discord_rpc https://github.com/Aidan63/linc_discord-rpc
-        haxelib git extension-webm https://github.com/gingerphoenix10/extension-webm.git 
-        haxelib run lime rebuild extension-webm windows
-        haxelib install linc_luajit
-        haxelib install actuate
-        haxelib lists
+  - haxelib install lime 
+  - RefreshEnv
+  - haxelib install openfl
+  - haxelib install flixel
+  - haxelib run lime setup flixel
+  - haxelib run lime setup
+  - haxelib install flixel-tools
+  # haxelib run flixel-tools setup -y # Can't do this since it asks [y/n] even with -y argument! Stupid
+  - haxelib install flixel-addons
+  - haxelib install flixel-ui
+  - haxelib install hscript
+  - haxelib install newgrounds
+  - haxelib install flixel-addons
+  - haxelib git faxe https://github.com/uhrobots/faxe
+  - haxelib git polymod https://github.com/larsiusprime/polymod.git
+  - haxelib git discord_rpc https://github.com/Aidan63/linc_discord-rpc
+  - haxelib git extension-webm https://github.com/gingerphoenix10/extension-webm.git 
+  - haxelib run lime rebuild extension-webm windows
+  - haxelib install linc_luajit
+  - haxelib install actuate
       - name: Create Version Tag
         run: echo "${{github.run_id}}" > VERSION
       - name: Compile
