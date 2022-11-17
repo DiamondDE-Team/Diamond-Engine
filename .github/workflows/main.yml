@@ -6,9 +6,9 @@ name: Build
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
-    branches: [ funkin ]
+    branches: [ main ]
   pull_request:
-    branches: [ funkin ]
+    branches: [ main ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -31,27 +31,27 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Install Haxelib
         run: |
-        sudo apt-get install libvlc-dev
-        sudo apt-get install libvlccore-dev
-        haxelib setup ~/haxelib
-        haxelib install lime 
-        haxelib install openfl
-        haxelib install flixel
-        haxelib run lime setup flixel
-        haxelib run lime setup
-        haxelib install flixel-tools
-        haxelib install flixel-addons
-        haxelib install flixel-ui
-        haxelib install hscript
-        haxelib install newgrounds
-        haxelib install flixel-addons
-        haxelib git faxe https://github.com/uhrobots/faxe
-        haxelib git discord_rpc https://github.com/Aidan63/linc_discord-rpc
-        haxelib git extension-webm https://github.com/gingerphoenix10/extension-webm.git 
-        haxelib run lime rebuild extension-webm windows
-        haxelib install linc_luajit
-        haxelib install actuate
-        haxelib list
+          sudo apt-get install libvlc-dev
+          sudo apt-get install libvlccore-dev
+          haxelib setup ~/haxelib
+          haxelib install hxcpp > /dev/null
+          haxelib install lime
+          haxelib install openfl
+          haxelib --never install flixel
+          haxelib run lime setup flixel
+          haxelib run lime setup
+          haxelib install flixel-tools
+          haxelib install flixel-ui
+          haxelib install flixel-addons
+          haxelib install tjson
+          haxelib install hxjsonast
+          haxelib install hxCodec
+          haxelib git linc_luajit https://github.com/nebulazorua/linc_luajit
+          haxelib install hscript
+          haxelib git hscript-ex https://github.com/ianharrigan/hscript-ex
+          haxelib git discord_rpc https://github.com/Aidan63/linc_discord-rpc
+          haxelib install hxcpp-debug-server
+          haxelib list
       - name: Create Version Tag
         run: echo "${{github.run_id}}" > VERSION
       - name: Compile
@@ -74,25 +74,25 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Install Haxelib
         run: |
-        haxelib setup C:/haxelib
-        haxelib install lime 
-        haxelib install openfl
-        haxelib install flixel
-        haxelib run lime setup flixel
-        haxelib run lime setup
-        haxelib install flixel-tools
-        haxelib install flixel-addons
-        haxelib install flixel-ui
-        haxelib install hscript
-        haxelib install newgrounds
-        haxelib install flixel-addons
-        haxelib git faxe https://github.com/uhrobots/faxe
-        haxelib git discord_rpc https://github.com/Aidan63/linc_discord-rpc
-        haxelib git extension-webm https://github.com/gingerphoenix10/extension-webm.git 
-        haxelib run lime rebuild extension-webm windows
-        haxelib install linc_luajit
-        haxelib install actuate
-        haxelib list
+          haxelib setup C:/haxelib
+          haxelib install hxcpp > nul
+          haxelib install lime
+          haxelib install openfl
+          haxelib --never install flixel
+          haxelib run lime setup flixel
+          haxelib run lime setup
+          haxelib install flixel-tools
+          haxelib install flixel-ui
+          haxelib install flixel-addons
+          haxelib install tjson
+          haxelib install hxjsonast
+          haxelib install hxCodec
+          haxelib git linc_luajit https://github.com/nebulazorua/linc_luajit
+          haxelib install hscript
+          haxelib git hscript-ex https://github.com/ianharrigan/hscript-ex
+          haxelib git discord_rpc https://github.com/Aidan63/linc_discord-rpc
+          haxelib install hxcpp-debug-server
+          haxelib list
         shell: cmd
       - name: Create Version Tag
         run: echo "${{github.run_id}}" > VERSION
@@ -116,25 +116,25 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Install Haxelib
         run: |
-        haxelib setup ~/haxelib
-        haxelib install lime 
-        haxelib install openfl
-        haxelib install flixel
-        haxelib run lime setup flixel
-        haxelib run lime setup
-        haxelib install flixel-tools
-        haxelib install flixel-addons
-        haxelib install flixel-ui
-        haxelib install hscript
-        haxelib install newgrounds
-        haxelib install flixel-addons
-        haxelib git faxe https://github.com/uhrobots/faxe
-        haxelib git discord_rpc https://github.com/Aidan63/linc_discord-rpc
-        haxelib git extension-webm https://github.com/gingerphoenix10/extension-webm.git 
-        haxelib run lime rebuild extension-webm windows
-        haxelib install linc_luajit
-        haxelib install actuate
-        haxelib lists
+          haxelib setup ~/haxelib
+          haxelib install hxcpp > /dev/null
+          haxelib install lime
+          haxelib install openfl
+          haxelib --never install flixel
+          haxelib run lime setup flixel
+          haxelib run lime setup
+          haxelib install flixel-tools
+          haxelib install flixel-ui
+          haxelib install flixel-addons
+          haxelib install tjson
+          haxelib install hxjsonast
+          haxelib install hxCodec
+          haxelib git linc_luajit https://github.com/nebulazorua/linc_luajit
+          haxelib install hscript
+          haxelib git hscript-ex https://github.com/ianharrigan/hscript-ex
+          haxelib git discord_rpc https://github.com/Aidan63/linc_discord-rpc
+          haxelib install hxcpp-debug-server
+          haxelib list
       - name: Create Version Tag
         run: echo "${{github.run_id}}" > VERSION
       - name: Compile
