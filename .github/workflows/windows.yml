@@ -47,7 +47,7 @@ jobs:
           haxelib run lime build windows
         shell: cmd   
       - name: compiling and sending off
-          run: haxelib run lime build windows
+        run: haxelib run lime build windows
       - name: uploading build
       - uses: actions/upload-artifact@v2
         with:

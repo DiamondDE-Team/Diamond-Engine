@@ -46,7 +46,7 @@ jobs:
           haxelib run lime build html5
         shell: cmd
       - name: compiling and sending off
-          run: haxelib run lime build html5
+        run: haxelib run lime build html5
       - name: uploading build            
       - uses: actions/upload-artifact@v2
         with:
