@@ -46,7 +46,7 @@ jobs:
           haxelib run lime build html5
         shell: cmd
       - name: compiling and sending off
-        run: haxelib run lime build windows --app-version="DEV-${{ github.run_id}}"
+      - run: haxelib run lime build windows --app-version="DEV-${{ github.run_id}}"
       - name: uploading build            
       - uses: actions/upload-artifact@v2
         with:
