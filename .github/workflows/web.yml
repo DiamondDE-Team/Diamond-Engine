@@ -39,12 +39,12 @@ jobs:
           haxelib git polymod https://github.com/MasterEric/polymod.git
           haxelib git discord_rpc https://github.com/Aidan63/linc_discord-rpc
           haxelib git https://github.com/gingerphoenix10/extension-webm.git 
-          haxelib run lime rebuild extension-webm windows
+          haxelib run lime rebuild extension-webm windows 
           haxelib git linc_luajit https://github.com/nebulazorua/linc_luajit.git
           haxelib install actuate 
           haxelib list
           haxelib run lime build html5
-      shell: cmd    
+        shell: cmd    
       - uses: actions/upload-artifact@v2
         with:
           name: Html5 Build

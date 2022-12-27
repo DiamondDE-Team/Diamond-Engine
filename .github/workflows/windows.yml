@@ -45,7 +45,7 @@ jobs:
           haxelib install actuate 
           haxelib list
           haxelib run lime build windows
-       shell: cmd   
+        shell: cmd   
       - uses: actions/upload-artifact@v2
         with:
           name: Windows Build
