@@ -23,9 +23,8 @@ jobs:
       - name: build window
         run: |
           RefreshEnv
-          mkdir "%HAXELIB_ROOT%"
-          haxelib setup "%HAXELIB_ROOT%"
-          haxelib install lime 7.9.0
+          haxelib setup C:\haxelib
+          haxelib install lime 
           RefreshEnv
           haxelib install openfl
           haxelib install flixel

@@ -23,8 +23,7 @@ jobs:
       - name: build web
         run: |
           RefreshEnv
-          mkdir "%HAXELIB_ROOT%"
-          haxelib setup "%HAXELIB_ROOT%"
+          haxelib setup C:\haxelib
           haxelib install lime 
           RefreshEnv
           haxelib install openfl
